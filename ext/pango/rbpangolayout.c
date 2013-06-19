@@ -298,6 +298,12 @@ rg_single_paragraph_mode_p(VALUE self)
 }
 
 static VALUE
+rg_is_ellipsized_p(VALUE self)
+{
+    return CBOOL2RVAL(pango_layout_is_ellipsized(_SELF(self)));
+}
+
+static VALUE
 rg_log_attrs(VALUE self)
 {
     PangoLogAttr* attrs;
@@ -542,6 +548,7 @@ Init_pango_layout(VALUE mPango)
     RG_DEF_METHOD(tabs, 0);
     RG_DEF_METHOD(set_single_paragraph_mode, 1);
     RG_DEF_METHOD_P(single_paragraph_mode, 0);
+    RG_DEF_METHOD_P(is_ellipsized, 0);
     RG_DEF_METHOD(log_attrs, 0);
     RG_DEF_METHOD(xy_to_index, 2);
     RG_DEF_METHOD(index_to_pos, 1);

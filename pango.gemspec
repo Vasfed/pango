@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "pango"
   gem.require_paths = ["lib"]
-  gem.version       = '1.1.3.1'
+  gem.version       = '1.1.3.2'
 
   gem.extensions = "ext/pango/extconf.rb"
 
