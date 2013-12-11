@@ -21,11 +21,12 @@ base_dir = Pathname.new(__FILE__).dirname.dirname.expand_path
 vendor_dir = base_dir + "vendor" + "local"
 vendor_bin_dir = vendor_dir + "bin"
 GLib.prepend_environment_path(vendor_bin_dir)
+require 'rbconfig'
 begin
   major, minor, _ = RUBY_VERSION.split(/\./)
-  require "#{major}.#{minor}/pango.so"
+  require "#{major}.#{minor}/pango.#{RbConfig::CONFIG['DLEXT']}"
 rescue LoadError
-  require "pango.so"
+  require "pango.#{RbConfig::CONFIG['DLEXT']}"
 end
 
 module Pango

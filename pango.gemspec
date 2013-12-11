@@ -12,10 +12,11 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "pango"
   gem.require_paths = ["lib"]
-  gem.version       = '1.1.3.2'
+  gem.version       = '1.1.3.3'
 
   gem.extensions = "ext/pango/extconf.rb"
 
+  #TODO: check glib dependency
   gem.add_dependency "glib2", '>=1.1.3'
   gem.add_dependency "cairo", '>=1.10.0'
   gem.add_development_dependency "rake-compiler"
